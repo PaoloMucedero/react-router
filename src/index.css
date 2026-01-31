@@ -1,0 +1,29 @@
+.mainNav {
+    background-color: green;
+    margin-bottom: 10px;
+    min-height: 50px;
+
+}
+
+.mainNav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.mainNav li {
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+.mainNav a {
+    color: black;
+    text-decoration: none;
+    
+}
+/* Qui sto sfruttando lo stato active che mi garantisce NavLink di Router */
+.mainNav a.active {
+    background-color: white;
+}
