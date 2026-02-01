@@ -1,5 +1,5 @@
 import axios from "axios"
-import NavBar from "../components/NavBar"
+
 import { useState, useEffect } from "react"
 
 
@@ -26,18 +26,17 @@ function ProductsList() {
 
   return (
     <>
-      <NavBar />
       <h2>ciao sei su LISTA PRODOTTI</h2>
       <div className="row-flex">
         {products.map((product) => (
-          <div key={product.id} className="card">
+          <div key={product.id} className="card col-sm-6">
             <img className="card-img-top" src={product.image} alt="" />
             <p>{product.category}</p>
             <p>{product.title}</p>
             <p>{product.description}</p>
             <p>{product.price} €</p>
-            <p>Voto: {product.rating?.rate}</p>
-            <p>Recensioni: {product.rating?.count}</p>
+            <p>Voto: {product.rating.rate}</p>
+            <p>Recensioni: {product.rating.count}</p>
           </div>
         ))}
       </div>
