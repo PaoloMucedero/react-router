@@ -1,5 +1,5 @@
 import axios from "axios"
-
+import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 
@@ -26,20 +26,20 @@ function ProductsList() {
 
   return (
     <>
-      <h2>ciao sei su LISTA PRODOTTI</h2>
-      <div className="row-flex">
-        {products.map((product) => (
-          <div key={product.id} className="card col-sm-6">
-            <img className="card-img-top" src={product.image} alt="" />
+      {products.map((product) => (
+        <Link
+          key={product.id}
+          to={`/products/${product.id}`}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <div className="card">
+            <img className="card-img-top" src={product.image} alt={product.title} />
             <p>{product.category}</p>
             <p>{product.title}</p>
-            <p>{product.description}</p>
             <p>{product.price} €</p>
-            <p>Voto: {product.rating.rate}</p>
-            <p>Recensioni: {product.rating.count}</p>
           </div>
-        ))}
-      </div>
+        </Link>
+      ))}
 
 
     </>
@@ -47,3 +47,4 @@ function ProductsList() {
 }
 
 export default ProductsList
+
